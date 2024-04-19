@@ -60,21 +60,29 @@ if selected == '✍️':
     st.write(f"Done!")
     
 if selected == '📊':
-  
-    db_content = load_dataset()
-    df = pd.DataFrame(db_content)
-    # df['date'] = pd.to_datetime(df['date'])
-    # df['week_of_year'] = df['date'].dt.isocalendar().week
-    # df['day_of_the_week'] = df['date'].dt.day_name() 
 
-    df
+    with st.popover("Table"):
+  
+        db_content = load_dataset()
+        df = pd.DataFrame(db_content)
+        # df['date'] = pd.to_datetime(df['date'])
+        # df['week_of_year'] = df['date'].dt.isocalendar().week
+        # df['day_of_the_week'] = df['date'].dt.day_name() 
+
+        df
+    
+        st.download_button(
+            label="Download data as CSV",
+            data=df.to_csv(),
+            file_name='large_df.csv',
+            mime='text/csv',
+        )
 
     
     # df_report = df.set_index('date')
     # df_report 
 
     date_2 = str(st.date_input("Date", key="second"))
-    st.write(date_2)
 
     try:
 
@@ -86,6 +94,6 @@ if selected == '📊':
             st.markdown(f"{report_write}")
 
     except:
-
+        st.warning("No data")
         st.stop()
 
