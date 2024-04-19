@@ -78,7 +78,7 @@ if selected == '📊':
 
     try:
 
-        report_write = df_report.loc[df_report,"report"]
+        report_write = df_report.loc[date_2,"report"]
       
         # REPORT
         with st.popover("Report"):
