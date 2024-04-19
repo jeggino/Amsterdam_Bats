@@ -63,22 +63,23 @@ if selected == '📊':
   
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
-    df['date'] = pd.to_datetime(df['date'])
-    df['week_of_year'] = df['date'].dt.isocalendar().week
-    df['day_of_the_week'] = df['date'].dt.day_name() 
+    # df['date'] = pd.to_datetime(df['date'])
+    # df['week_of_year'] = df['date'].dt.isocalendar().week
+    # df['day_of_the_week'] = df['date'].dt.day_name() 
 
     df
 
     
-    df_report = df.set_index('date')
-    df_report 
+    # df_report = df.set_index('date')
+    # df_report 
 
     date_2 = st.date_input("Date", key="second")
     st.write(date_2)
 
     try:
 
-        report_write = df_report.loc[date_2,"report"]
+        # report_write = df_report.loc[date_2,"report"]
+        report_write = df_report[df_report["date"]==date_2]["report"]
       
         # REPORT
         with st.popover("Report"):
