@@ -91,7 +91,7 @@ if selected == '📊':
       
         # REPORT
         with st.popover("Report"):
-            st.markdown(f"{report_write}")
+            st.markdown(report_write)
 
     except:
         st.warning("No data")
