@@ -88,7 +88,7 @@ if selected == '📊':
 
         # report_write = df_report.loc[date_2,"report"]
         report_write = df[df["date"]==date_2]["report"]
-        report_write
+        report_write.to_value()
       
         # REPORT
         with st.popover("Report"):
