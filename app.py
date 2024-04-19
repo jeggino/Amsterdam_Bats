@@ -9,8 +9,8 @@ from deta import Deta
 
 # --- CONFIGURATION ---
 st.set_page_config(
-    page_title="Amsterdam Bats",
-    page_icon="❌❌❌",
+    page_title="❌❌❌",
+    page_icon="🦇",
     layout="wide",
     menu_items={
         'Get Help': 'https://www.extremelycoolapp.com/help',
