@@ -73,6 +73,7 @@ if selected == '📊':
     df_report = df.set_index('date')
 
     date_2 = st.date_input("Date", key="second")
+    st.write(date_2)
 
     try:
 
