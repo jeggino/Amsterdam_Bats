@@ -9,8 +9,8 @@ from deta import Deta
 
 # --- CONFIGURATION ---
 st.set_page_config(
-    page_title="Brocacef",
-    page_icon="💪",
+    page_title="Amsterdam Bats",
+    page_icon="❌❌❌",
     layout="wide",
     menu_items={
         'Get Help': 'https://www.extremelycoolapp.com/help',
@@ -66,14 +66,23 @@ if selected == '📊':
     df['date'] = pd.to_datetime(df['date'])
     df['week_of_year'] = df['date'].dt.isocalendar().week
     df['day_of_the_week'] = df['date'].dt.day_name() 
-    
+
     df
-  
-    # REPORT
-    with st.popover("Report"):
-        st.markdown(f"""
-        On average, you work **{average_week}** hours per week, which is equivalent to a daily average of **{average_day}** hours. 
-        **{max_day}** is the day when you usually work the most, with a total of **{max_day_hours}** hours. In contrast, **{less_day}** is the day when you work the least, with only **{min_day_hours}** hours worked. 
-        **{max_day_2['day_of_the_week']}**, on the date of **{max_day_2['date']}**, was the day when you worked the most hours in absolute terms. On the other hand, **{less_day}**, on the date of **{less_day_2['date']}**, was the day when you worked the fewest hours in absolute terms.
-        """)
+
+    
+    df_report = df.set_index('date')
+
+    date_2 = st.date_input("Date", key="second")
+
+    try:
+
+        report_write = df_report.loc[df_report,"report"]
+      
+        # REPORT
+        with st.popover("Report"):
+            st.markdown(f"{report_write}")
+
+    except:
+
+        st.stop()
 
