@@ -85,7 +85,60 @@ if selected == '📊':
     
     # df_report = df.set_index('date')
     # df_report 
+    import altair as alt
 
+
+    chart = alt.Chart(df).mark_circle(size=30,
+        opacity=0.8,
+        stroke='black',
+        strokeWidth=1,
+        strokeOpacity=0.4
+    ).encode(
+        alt.X('date_added:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
+              scale=alt.Scale(domain=['2015','2023']))
+        ,
+        alt.Y('director:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="director",  order='ascending'),title=None)
+        ,
+        
+        tooltip=[
+            "director:N",
+            alt.Tooltip("area:N"),
+            alt.Tooltip("waarnemer:N"),
+            alt.Tooltip("date:T")
+        ],
+    ).properties(
+        width=450,
+        height=300,
+        title=alt.Title(
+            text="",
+            subtitle="",
+            anchor='start'
+        )
+    )
+    
+    # Add annotations
+    ANNOTATIONS = [
+        ("Mar 01, 2016", "Pretty good day for GOOG"),
+        ("Dec 01, 2017", "Something's going wrong for GOOG & AAPL"),
+        ("Nov 01, 2018", "Market starts again thanks to..."),
+        ("Dec 01, 2019", "Small crash for GOOG after..."),
+    ]
+    annotations_df = pd.DataFrame(ANNOTATIONS, columns=["date", "event"])
+    annotations_df.date = pd.to_datetime(annotations_df.date)
+    
+
+    
+    rule = alt.Chart(annotations_df).mark_rule(color="red").encode(
+        x="date:T",
+        tooltip=["event"],
+        color=alt.Color('event:N').legend(None),
+        size=alt.value(2),
+    ).interactive()
+    
+    
+    
+    chart = chart  + rule
+        
     date_2 = str(st.date_input("Date", key="second"))
 
     try:
