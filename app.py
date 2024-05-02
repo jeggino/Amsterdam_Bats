@@ -138,6 +138,8 @@ if selected == '📊':
     
     
     chart = chart  + rule
+
+    st.altair_chart(chart, theme=None, use_container_width=True)
         
     date_2 = str(st.date_input("Date", key="second"))
 
