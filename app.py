@@ -102,10 +102,10 @@ if selected == '📊':
         ,
         
         tooltip=[
-            "director:N",
-            alt.Tooltip("area:N"),
             alt.Tooltip("waarnemer:N"),
-            alt.Tooltip("date:T")
+            alt.Tooltip("date:T"),
+            alt.Tooltip("area:N"),
+
         ],
     ).properties(
         width=450,
