@@ -60,7 +60,7 @@ if selected == '✍️':
     
     if submitted:
 
-        if waarnemer == None:
+        if len(waarnemer) == 0:
             st.write("chose a waarnamer")
             st.stop()
     
