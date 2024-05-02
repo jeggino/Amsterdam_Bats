@@ -96,7 +96,7 @@ if selected == '📊':
         strokeOpacity=0.4
     ).encode(
         alt.X('date:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
-              scale=alt.Scale(domain=['2024','2024']))
+              scale=alt.Scale(domain=['2024','2025']))
         ,
         alt.Y('area:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="area",  order='ascending'),title=None)
         ,
