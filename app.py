@@ -52,11 +52,17 @@ if selected == '✍️':
     start_hour = str(st.time_input('Start time', datetime.time(14, 45),step=300))
     finish_hour = str(st.time_input('Finish time', datetime.time(22, 00),step=300))
     report = st.text_area("")
+
+    
     
     
     submitted = st.button("Insert survey")
     
     if submitted:
+
+        if waarnemer == None:
+            st.write("chose a waarnamer")
+            st.stop()
     
         insert_input(date,area,start_hour,waarnemer,finish_hour,report)
         st.write(f"Done!")
