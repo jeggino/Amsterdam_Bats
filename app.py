@@ -70,7 +70,7 @@ if selected == '📊':
         db_content = load_dataset()
         df = pd.DataFrame(db_content)
         # df["date_added"] = pd.to_datetime(df['date_added'],format="%B %d, %Y")
-        df['date'] = pd.to_datetime(df['date'],format="%Y-%B-%d")
+        # df['date'] = pd.to_datetime(df['date'],format="%Y-%B-%d")
         # df['week_of_year'] = df['date'].dt.isocalendar().week
         # df['day_of_the_week'] = df['date'].dt.day_name() 
 
@@ -95,7 +95,7 @@ if selected == '📊':
         strokeWidth=1,
         strokeOpacity=0.4
     ).encode(
-        alt.X('date_added:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
+        alt.X('date:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2023','2025']))
         ,
         alt.Y('area:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="area",  order='ascending'),title=None)
