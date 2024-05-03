@@ -127,15 +127,15 @@ if selected == '📊':
         ("July 1, 2024", "Kraamperiode (4e ochtend)"),
         ("July 15, 2024", "Eind kraamperiode"),
     ]
-    annotations_df = pd.DataFrame(ANNOTATIONS, columns=["datum", "event"])
+    annotations_df = pd.DataFrame(ANNOTATIONS, columns=["datum", "doel"])
     annotations_df.datum = pd.to_datetime(annotations_df.datum)
     
 
     
     rule = alt.Chart(annotations_df).mark_rule(color="red").encode(
         x="datum:T",
-        tooltip=["event"],
-        color=alt.Color('event:N').legend(None),
+        tooltip=["doel"],
+        color=alt.Color('doel:N').legend(None),
         size=alt.value(2),
     ).interactive()
     
