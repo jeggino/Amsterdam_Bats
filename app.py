@@ -75,7 +75,7 @@ if selected == '✍️':
     if submitted:
 
         if len(waarnemer) == 0 or area==None or doel==None:
-            st.write("chose a waarnamer")
+            st.warning("complete survey")
             st.stop()
     
         insert_input(date,area,doel,waarnemer)
