@@ -35,9 +35,9 @@ DOEL = ["groepsvorming en zwermen laatvlieger","kraamperiode (1e avond)","kraamp
 def load_dataset():
   return db.fetch().items
 
-def insert_input(date,area,start_hour,waarnemer,finish_hour,report):
+def insert_input(date,area,doel,waarnemer):
 
-  return db.put({"date":str(date),"area":area,"waarnemer":waarnemer,"start_hour":start_hour,"finish_hour":finish_hour,"report":report})
+  return db.put({"date":str(date),"area":area,"waarnemer":waarnemer,"doel":doel})
 
 def stream_data():
     for word in _LOREM_IPSUM.split(" "):
@@ -75,7 +75,7 @@ if selected == '✍️':
             st.write("chose a waarnamer")
             st.stop()
     
-        insert_input(date,area,start_hour,waarnemer,finish_hour,report)
+        insert_input(date,area,doel,waarnemer)
         st.write(f"Done!")
     
 if selected == '📊':
@@ -114,7 +114,7 @@ if selected == '📊':
             alt.Tooltip("waarnemer:N"),
             alt.Tooltip("date:T"),
             alt.Tooltip("area:N"),
-
+            alt.Tooltip("doel:N"),
         ],
     ).properties(
         width=450,
