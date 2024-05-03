@@ -166,16 +166,16 @@ if selected == '📊':
     
     data_df = pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"})
 
-     st.data_editor(
+    st.data_editor(
         data_df,
         column_config={
-            "Antaal": st.column_config.ProgressColumn(
-                "antaal",
-                help="Number of surveys",
-                min_value=0,
-                max_value=data_df.antaal.max(),
-            ),
-        },
+                "Antaal": st.column_config.ProgressColumn(
+                    "antaal",
+                    help="Number of surveys",
+                    min_value=0,
+                    max_value=data_df.antaal.max(),
+                ),
+            },
         hide_index=FAlse,
-            use_container_width = True
+        use_container_width = True
     )
