@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 import pandas as pd
+import altair as alt
 
 import datetime
 
@@ -71,7 +72,7 @@ if selected == '✍️':
     
     if submitted:
 
-        if len(waarnemer) == 0 or area==None or or doel==None:
+        if len(waarnemer) == 0 or area==None or doel==None:
             st.write("chose a waarnamer")
             st.stop()
     
@@ -95,7 +96,6 @@ if selected == '📊':
             mime='text/csv',
         )
 
-    import altair as alt
 
 
     chart = alt.Chart(df).mark_circle(size=30,
