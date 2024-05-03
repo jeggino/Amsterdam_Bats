@@ -170,6 +170,7 @@ if selected == '📋':
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
     df.drop("key",axis=1)
+    df
 
     st.download_button(
         label="Download data as CSV",
