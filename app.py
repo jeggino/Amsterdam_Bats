@@ -165,10 +165,12 @@ if selected == '📊':
         data_df,
         column_config={
                 "antaal": st.column_config.ProgressColumn(
+                    
                     "Antaal",
+                    format="$f",
                     help="Number of surveys",
                     min_value=0,
-                    max_value=20,
+                    max_value=30,
                 ),
             },
         hide_index=False,
