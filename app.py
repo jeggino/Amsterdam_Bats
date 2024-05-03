@@ -40,7 +40,7 @@ def load_dataset():
 
 def insert_input(datum,gebied,doel,waarnemer):
 
-  return db.put({"datum":str(datum),"gebied":gebied,,"doel":doel,"waarnemer":waarnemer})
+  return db.put({"datum":str(datum),"gebied":gebied,"doel":doel,"waarnemer":waarnemer})
 
 def stream_data():
     for word in _LOREM_IPSUM.split(" "):
