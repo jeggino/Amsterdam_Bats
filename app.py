@@ -127,7 +127,7 @@ if selected == '📊':
         ("July 1, 2024", "Kraamperiode (4e ochtend)"),
         ("July 15, 2024", "Eind kraamperiode"),
     ]
-    annotations_df = pd.DataFrame(ANNOTATIONS, columns=["date", "event"])
+    annotations_df = pd.DataFrame(ANNOTATIONS, columns=["datum", "event"])
     annotations_df.datum = pd.to_datetime(annotations_df.datum)
     
 
