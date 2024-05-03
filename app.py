@@ -159,8 +159,9 @@ if selected == '📊':
     waarnemer = df.waarnemer.to_list()
     data = Counter(get_elements(waarnemer))
     
-    data_df = pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"}).reset_inde()
-
+    data_df = pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"})
+    data_df.reset_inde()
+    
     st.data_editor(
         data_df,
         column_config={
