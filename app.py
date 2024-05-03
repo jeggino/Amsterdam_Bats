@@ -58,7 +58,7 @@ def get_elements(l):
         
 # --- APP ---
 # horizontal menu
-selected = option_menu(None, ['✍️','📊'], 
+selected = option_menu(None, ['✍️','📊','📋'], 
                        icons=None,
                        default_index=0,
                        orientation="horizontal",
@@ -83,22 +83,8 @@ if selected == '✍️':
     
 if selected == '📊':
 
-    
-
-    with st.popover("Table"):
-  
-        db_content = load_dataset()
-        df = pd.DataFrame(db_content)
-        df
-    
-        st.download_button(
-            label="Download data as CSV",
-            data=df.to_csv(),
-            file_name='large_df.csv',
-            mime='text/csv',
-        )
-
-
+    db_content = load_dataset()
+    df = pd.DataFrame(db_content)
 
     chart = alt.Chart(df).mark_circle(size=30,
         opacity=0.8,
@@ -178,3 +164,18 @@ if selected == '📊':
         hide_index=False,
         use_container_width = True
     )
+
+if selected == '📋':
+
+    db_content = load_dataset()
+    df = pd.DataFrame(db_content)
+    df.drop("key",axis=1)
+
+    st.download_button(
+        label="Download data as CSV",
+        data=df.to_csv(),
+        file_name='df.csv',
+        mime='text/csv',
+    )
+
+    
