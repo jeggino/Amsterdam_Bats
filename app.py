@@ -159,14 +159,14 @@ if selected == '📊':
     waarnemer = df.waarnemer.to_list()
     data = Counter(get_elements(waarnemer))
     
-    data_df = pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"}).reset_index()
+    data_df = pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"})#.reset_index()
     data_df
     
     st.data_editor(
         data_df,
         column_config={
-                "Antaal": st.column_config.ProgressColumn(
-                    "antaal",
+                "antaal": st.column_config.ProgressColumn(
+                    "Antaal",
                     help="Number of surveys",
                     min_value=0,
                     max_value=data_df.antaal.max(),
