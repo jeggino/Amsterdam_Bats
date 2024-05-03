@@ -86,6 +86,9 @@ if selected == '📊':
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
 
+    tab1, tab2= st.tabs(["Cat", "Dog", "Owl"])
+
+
     chart = alt.Chart(df).mark_circle(size=30,
         opacity=0.8,
         stroke='black',
@@ -140,16 +143,14 @@ if selected == '📊':
     
     chart = chart  + rule
 
-    st.altair_chart(chart, theme=None, use_container_width=True)
-
-    "---"
+    tab1.altair_chart(chart, theme=None, use_container_width=True)
     
     waarnemer = df.waarnemer.to_list()
     data = Counter(get_elements(waarnemer))
     
     data_df = pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"})
     
-    st.data_editor(
+    tab2.data_editor(
         data_df,
         column_config={
                 "antaal": st.column_config.ProgressColumn(
@@ -170,6 +171,7 @@ if selected == '📋':
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
     df.drop("key",axis=1,inplace=True)
+    
     df
 
     st.download_button(
