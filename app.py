@@ -38,9 +38,9 @@ GEBIED = ['P', 'O']
 def load_dataset():
   return db.fetch().items
 
-def insert_input(datum,area,doel,waarnemer):
+def insert_input(datum,gebied,doel,waarnemer):
 
-  return db.put({"datum":str(datum),"gebied":gebied,"waarnemer":waarnemer,"doel":doel})
+  return db.put({"datum":str(datum),"gebied":gebied,,"doel":doel,"waarnemer":waarnemer})
 
 def stream_data():
     for word in _LOREM_IPSUM.split(" "):
@@ -78,7 +78,7 @@ if selected == '✍️':
             st.warning("complete survey")
             st.stop()
     
-        insert_input(datum,area,gebied,waarnemer)
+        insert_input(datum,gebied,doel,waarnemer)
         st.write(f"Done!")
     
 if selected == '📊':
