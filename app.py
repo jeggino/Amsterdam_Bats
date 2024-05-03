@@ -86,11 +86,6 @@ if selected == '📊':
   
         db_content = load_dataset()
         df = pd.DataFrame(db_content)
-        # df["date_added"] = pd.to_datetime(df['date_added'],format="%B %d, %Y")
-        # df['date'] = pd.to_datetime(df['date'],format="%Y-%B-%d")
-        # df['week_of_year'] = df['date'].dt.isocalendar().week
-        # df['day_of_the_week'] = df['date'].dt.day_name() 
-
         df
     
         st.download_button(
@@ -176,6 +171,6 @@ if selected == '📊':
                     max_value=data_df.antaal.max(),
                 ),
             },
-        hide_index=FAlse,
+        hide_index=False,
         use_container_width = True
     )
