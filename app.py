@@ -32,6 +32,8 @@ db = deta.Base("df_amsterdam_bat")
 DOEL = ["groepsvorming en zwermen laatvlieger","kraamperiode (1e avond)","kraamperiode (2e avond)","kraamperiode (1e ochtend)",
        "kraamperiode (2e en 3e ochtend)","kraamperiode (4e ochtend)","eind kraamperiode"]
 
+GEBIED = ['P', 'O']
+
 # --- FUNCTIONS ---
 def load_dataset():
   return db.fetch().items
@@ -64,8 +66,8 @@ selected = option_menu(None, ['✍️','📊'],
 
 if selected == '✍️':
     date = st.date_input("Date", datetime.datetime.today())
-    area = st.selectbox('Chose an Area',['P', 'O'],key='area',placeholder="Select area...",)
-    doel = st.selectbox('selec enn doel',DOEL,key='doel',placeholder="Select doel...",)
+    area = st.selectbox('Chose an Area',GEBIED,key='area',placeholder="Select area...",index=None)
+    doel = st.selectbox('selec enn doel',DOEL,key='doel',placeholder="Select doel...",index=None)
     waarnemer = st.multiselect('waarnemer(s)',['Luigi', 'Alko', 'Tobias'],key='waarnemer',placeholder="Select waarnemer...")
     
     submitted = st.button("Insert survey")
