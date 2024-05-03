@@ -86,7 +86,7 @@ if selected == '📊':
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
 
-    tab1, tab2= st.tabs(["Cat", "Dog", "Owl"])
+    tab1, tab2= st.tabs(["Cat", "Dog"])
 
 
     chart = alt.Chart(df).mark_circle(size=30,
