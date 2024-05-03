@@ -167,7 +167,7 @@ if selected == '📊':
                 "antaal": st.column_config.ProgressColumn(
                     
                     "Antaal",
-                    format="$f",
+                    format="%f",
                     help="Number of surveys",
                     min_value=0,
                     max_value=30,
