@@ -7,6 +7,8 @@ import datetime
 
 from deta import Deta
 
+from collections import Counter
+
 # --- CONFIGURATION ---
 st.set_page_config(
     page_title="❌❌❌",
@@ -36,6 +38,15 @@ def stream_data():
     for word in _LOREM_IPSUM.split(" "):
         yield word + " "
         time.sleep(0.02)
+
+def get_elements(l):
+    ret = []
+    for elem in l:
+        if type(elem) == list:
+            ret.extend(get_elements(elem))
+        else:
+            ret.append(elem)
+    return ret
         
 # --- APP ---
 # horizontal menu
@@ -150,7 +161,15 @@ if selected == '📊':
     chart = chart  + rule
 
     st.altair_chart(chart, theme=None, use_container_width=True)
-        
+
+    "---"
+
+    waarnemer = [i.split(",") for i in df.waarnemer.to_list()]
+    data = Counter(get_elements(waarnemer))
+    
+    pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"})
+
+    "---"
     date_2 = str(st.date_input("Date", key="second"))
 
     try:
