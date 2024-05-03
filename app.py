@@ -125,7 +125,7 @@ if selected == '📊':
     
     # Add annotations
     ANNOTATIONS = [
-        ("Apil 15, 2024", "groepsvorming en zwermen laatvlieger"),
+        ("April 15, 2024", "groepsvorming en zwermen laatvlieger"),
         ("May 15, 2024", "kraamperiode (1e avond)"),
         ("June 15, 2024", "kraamperiode (2e avond)"),
         ("May 15, 2024", "kraamperiode (1e ochtend)"),
