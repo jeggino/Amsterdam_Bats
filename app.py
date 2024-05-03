@@ -168,7 +168,7 @@ if selected == '📊':
     waarnemer = df.waarnemer.to_list()
     data = Counter(get_elements(waarnemer))
     
-    pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"})
+    st.write(pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"}))
 
     "---"
     date_2 = str(st.date_input("Date", key="second"))
