@@ -125,10 +125,13 @@ if selected == '📊':
     
     # Add annotations
     ANNOTATIONS = [
-        ("Mar 01, 2016", "Pretty good day for GOOG"),
-        ("Dec 01, 2017", "Something's going wrong for GOOG & AAPL"),
-        ("Nov 01, 2018", "Market starts again thanks to..."),
-        ("Dec 01, 2019", "Small crash for GOOG after..."),
+        ("Apil 15, 2024", "groepsvorming en zwermen laatvlieger"),
+        ("May 15, 2024", "kraamperiode (1e avond)"),
+        ("June 15, 2024", "kraamperiode (2e avond)"),
+        ("May 15, 2024", "kraamperiode (1e ochtend)"),
+        ("June 1, 2024", "kraamperiode (2e en 3e ochtend)"),
+        ("July 1, 2024", "kraamperiode (4e ochtend)"),
+        ("July 15, 2024", "eind kraamperiode"),
     ]
     annotations_df = pd.DataFrame(ANNOTATIONS, columns=["date", "event"])
     annotations_df.date = pd.to_datetime(annotations_df.date)
