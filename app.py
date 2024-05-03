@@ -168,7 +168,7 @@ if selected == '📊':
                 "antaal": st.column_config.ProgressColumn(
                     "Antaal",
                     help="Number of surveys",
-                    min_value=0,
+                    # min_value=0,
                     max_value=data_df.antaal.max(),
                 ),
             },
