@@ -163,7 +163,7 @@ if selected == '📊':
     st.altair_chart(chart, theme=None, use_container_width=True)
 
     "---"
-
+    st.write(df.waarnemer.to_list())
     waarnemer = [i.split(",") for i in df.waarnemer.to_list()]
     data = Counter(get_elements(waarnemer))
     
