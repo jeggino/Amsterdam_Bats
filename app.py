@@ -169,7 +169,7 @@ if selected == '📊':
                     "Antaal",
                     help="Number of surveys",
                     # min_value=0,
-                    max_value=data_df.antaal.max(),
+                    # max_value=data_df.antaal.max(),
                 ),
             },
         hide_index=False,
