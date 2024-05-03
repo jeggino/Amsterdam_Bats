@@ -26,6 +26,11 @@ st.set_page_config(
 deta = Deta(st.secrets["deta_key"])
 db = deta.Base("df_amsterdam_bat")
 
+# --- COSTANTS ---
+
+DOEL = ["groepsvorming en zwermen laatvlieger","kraamperiode (1e avond)","kraamperiode (2e avond)","kraamperiode (1e ochtend)",
+       "kraamperiode (2e en 3e ochtend)","kraamperiode (4e ochtend)","eind kraamperiode"]
+
 # --- FUNCTIONS ---
 def load_dataset():
   return db.fetch().items
@@ -58,20 +63,15 @@ selected = option_menu(None, ['✍️','📊'],
 
 if selected == '✍️':
     date = st.date_input("Date", datetime.datetime.today())
-    area = st.selectbox('Chose an Area',['P', 'O'],key='area')
-    waarnemer = st.multiselect('waarnemer(s)',['Luigi', 'Alko', 'Tobias'],key='waarnemer')
-    start_hour = str(st.time_input('Start time', datetime.time(14, 45),step=300))
-    finish_hour = str(st.time_input('Finish time', datetime.time(22, 00),step=300))
-    report = st.text_area("")
-
-    
-    
+    area = st.selectbox('Chose an Area',['P', 'O'],key='area',placeholder="Select area...",)
+    doel = st.selectbox('selec enn doel',DOEL,key='doel',placeholder="Select doel...",)
+    waarnemer = st.multiselect('waarnemer(s)',['Luigi', 'Alko', 'Tobias'],key='waarnemer',placeholder="Select waarnemer...")
     
     submitted = st.button("Insert survey")
     
     if submitted:
 
-        if len(waarnemer) == 0:
+        if len(waarnemer) == 0 or area==None or or doel==None:
             st.write("chose a waarnamer")
             st.stop()
     
