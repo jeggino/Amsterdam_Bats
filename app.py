@@ -38,9 +38,9 @@ GEBIED = ['P', 'O']
 def load_dataset():
   return db.fetch().items
 
-def insert_input(date,area,doel,waarnemer):
+def insert_input(datum,area,doel,waarnemer):
 
-  return db.put({"date":str(date),"area":area,"waarnemer":waarnemer,"doel":doel})
+  return db.put({"datum":str(datum),"gebied":gebied,"waarnemer":waarnemer,"doel":doel})
 
 def stream_data():
     for word in _LOREM_IPSUM.split(" "):
@@ -65,10 +65,10 @@ selected = option_menu(None, ['✍️','📊','📋'],
                        )
 
 if selected == '✍️':
-    date = st.date_input("Date", datetime.datetime.today())
-    area = st.selectbox('Chose an Area',GEBIED,key='area',placeholder="Select area...",index=None)
-    doel = st.selectbox('selec enn doel',DOEL,key='doel',placeholder="Select doel...",index=None)
-    waarnemer = st.multiselect('waarnemer(s)',['Luigi', 'Alko', 'Tobias'],key='waarnemer',placeholder="Select waarnemer...")
+    datum = st.date_input("Datum", datetime.datetime.today())
+    gebied = st.selectbox('Gebied',GEBIED,key='area',placeholder="Kies een gebied...",index=None)
+    doel = st.selectbox('Doel',DOEL,key='doel',placeholder="Kies een doel...",index=None)
+    waarnemer = st.multiselect('Waarnemer(s)',['Luigi', 'Alko', 'Tobias'],key='waarnemer',placeholder="Kies voor een waarnemer...")
     
     submitted = st.button("Insert survey")
     
@@ -78,7 +78,7 @@ if selected == '✍️':
             st.warning("complete survey")
             st.stop()
     
-        insert_input(date,area,doel,waarnemer)
+        insert_input(datum,area,gebied,waarnemer)
         st.write(f"Done!")
     
 if selected == '📊':
@@ -95,16 +95,16 @@ if selected == '📊':
         strokeWidth=1,
         strokeOpacity=0.4
     ).encode(
-        alt.X('date:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
+        alt.X('datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2024','2025']))
         ,
-        alt.Y('area:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="area",  order='ascending'),title=None)
+        alt.Y('gebied:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
         ,
         
         tooltip=[
             alt.Tooltip("waarnemer:N"),
-            alt.Tooltip("date:T"),
-            alt.Tooltip("area:N"),
+            alt.Tooltip("datum:T"),
+            alt.Tooltip("gebied:N"),
             alt.Tooltip("doel:N"),
         ],
     ).properties(
@@ -119,13 +119,13 @@ if selected == '📊':
     
     # Add annotations
     ANNOTATIONS = [
-        ("April 15, 2024", "groepsvorming en zwermen laatvlieger"),
-        ("May 15, 2024", "kraamperiode (1e avond)"),
-        ("June 15, 2024", "kraamperiode (2e avond)"),
-        ("May 15, 2024", "kraamperiode (1e ochtend)"),
-        ("June 1, 2024", "kraamperiode (2e en 3e ochtend)"),
-        ("July 1, 2024", "kraamperiode (4e ochtend)"),
-        ("July 15, 2024", "eind kraamperiode"),
+        ("April 15, 2024", "Groepsvorming en zwermen laatvlieger"),
+        ("May 15, 2024", "Kraamperiode (1e avond)"),
+        ("June 15, 2024", "Kraamperiode (2e avond)"),
+        ("May 15, 2024", "Kraamperiode (1e ochtend)"),
+        ("June 1, 2024", "Kraamperiode (2e en 3e ochtend)"),
+        ("July 1, 2024", "Kraamperiode (4e ochtend)"),
+        ("July 15, 2024", "Eind kraamperiode"),
     ]
     annotations_df = pd.DataFrame(ANNOTATIONS, columns=["date", "event"])
     annotations_df.date = pd.to_datetime(annotations_df.date)
@@ -133,7 +133,7 @@ if selected == '📊':
 
     
     rule = alt.Chart(annotations_df).mark_rule(color="red").encode(
-        x="date:T",
+        x="datum:T",
         tooltip=["event"],
         color=alt.Color('event:N').legend(None),
         size=alt.value(2),
@@ -154,10 +154,8 @@ if selected == '📊':
         data_df,
         column_config={
                 "antaal": st.column_config.ProgressColumn(
-                    
-                    "Antaal",
+                    "Aantal werkdagen",
                     format="%f",
-                    help="Number of surveys",
                     min_value=0,
                     max_value=30,
                 ),
