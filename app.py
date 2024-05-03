@@ -172,7 +172,12 @@ if selected == '📋':
     df = pd.DataFrame(db_content)
     df.drop("key",axis=1,inplace=True)
     
-    df
+    st.data_editor(
+        df,
+        hide_index=True,
+        use_container_width = True
+    )
+    
 
     st.download_button(
         label="Download data as CSV",
