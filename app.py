@@ -169,7 +169,7 @@ if selected == '📋':
 
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
-    df.drop("key",axis=1)
+    df.drop("key",axis=1,inplace=True)
     df
 
     st.download_button(
