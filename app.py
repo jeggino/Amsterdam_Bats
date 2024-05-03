@@ -164,7 +164,8 @@ if selected == '📊':
 
     "---"
     st.write(df.waarnemer.to_list())
-    waarnemer = [i.split(",") for i in df.waarnemer.to_list()]
+    # waarnemer = [i.split(",") for i in df.waarnemer.to_list()]
+    waarnemer = df.waarnemer.to_list()
     data = Counter(get_elements(waarnemer))
     
     pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"})
