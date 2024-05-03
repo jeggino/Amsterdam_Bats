@@ -100,9 +100,6 @@ if selected == '📊':
             mime='text/csv',
         )
 
-    
-    # df_report = df.set_index('date')
-    # df_report 
     import altair as alt
 
 
@@ -163,27 +160,8 @@ if selected == '📊':
     st.altair_chart(chart, theme=None, use_container_width=True)
 
     "---"
-    st.write(df.waarnemer.to_list())
-    # waarnemer = [i.split(",") for i in df.waarnemer.to_list()]
+    
     waarnemer = df.waarnemer.to_list()
     data = Counter(get_elements(waarnemer))
     
-    st.write(pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"}))
-
-    "---"
-    date_2 = str(st.date_input("Date", key="second"))
-
-    try:
-
-        # report_write = df_report.loc[date_2,"report"]
-        report_write = df[df["date"]==date_2]["report"]
-        report_write[1]
-      
-        # REPORT
-        with st.popover("Report"):
-            st.markdown(report_write)
-
-    except:
-        st.warning("No data")
-        st.stop()
-
+    st.table(pd.DataFrame.from_dict(data, orient='index').rename(columns={0:"antaal"}))
