@@ -88,7 +88,7 @@ if selected == '📊':
     tab1, tab2= st.tabs(["🔍", "🦸‍♂️"])
 
 
-    chart = alt.Chart(df).mark_image(size=30,
+    chart = alt.Chart(df).mark_image(size=15,
         opacity=0.8,
         stroke='black',
         strokeWidth=1,
