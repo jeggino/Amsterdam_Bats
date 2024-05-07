@@ -16,8 +16,6 @@ st.set_page_config(
     page_icon="🦇",
     layout="wide",
     menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
         'About': "https://www.ecoloogamsterdam.nl/"
     }
     
@@ -70,12 +68,12 @@ if selected == '✍️':
     doel = st.selectbox('Doel',DOEL,key='doel',placeholder="Kies een doel...",index=None)
     waarnemer = st.multiselect('Waarnemer(s)',['Luigi', 'Alko', 'Tobias'],key='waarnemer',placeholder="Kies voor een waarnemer...")
     
-    submitted = st.button("Insert survey")
+    submitted = st.button("Gegevens invoegen")
     
     if submitted:
 
         if len(waarnemer) == 0 or gebied==None or doel==None:
-            st.warning("complete survey")
+            st.warning("Vul het formulier in, alstublieft")
             st.stop()
     
         insert_input(datum,gebied,doel,waarnemer)
@@ -85,11 +83,12 @@ if selected == '📊':
 
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
+    df['img'] = "https://png.pngtree.com/png-vector/20230903/ourmid/pngtree-halloween-black-flying-bat-clipart-png-image_9961536.png"
 
     tab1, tab2= st.tabs(["🔍", "🦸‍♂️"])
 
 
-    chart = alt.Chart(df).mark_circle(size=30,
+    chart = alt.Chart(df).mark_image(size=30,
         opacity=0.8,
         stroke='black',
         strokeWidth=1,
@@ -100,7 +99,7 @@ if selected == '📊':
         ,
         alt.Y('gebied:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
         ,
-        
+        url="img",
         tooltip=[
             alt.Tooltip("waarnemer:N"),
             alt.Tooltip("datum:T"),
@@ -120,9 +119,8 @@ if selected == '📊':
     # Add annotations
     ANNOTATIONS = [
         ("April 15, 2024", "Groepsvorming en zwermen laatvlieger"),
-        ("May 15, 2024", "Kraamperiode (1e avond)"),
+        ("May 15, 2024", "Kraamperiode (1e avond en 1e ochtend)"),
         ("June 15, 2024", "Kraamperiode (2e avond)"),
-        ("May 15, 2024", "Kraamperiode (1e ochtend)"),
         ("June 1, 2024", "Kraamperiode (2e en 3e ochtend)"),
         ("July 1, 2024", "Kraamperiode (4e ochtend)"),
         ("July 15, 2024", "Eind kraamperiode"),
