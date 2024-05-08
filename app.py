@@ -83,7 +83,7 @@ if selected == '📊':
 
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
-    df['img'] = "https://th.bing.com/th/id/R.c8a761297624aa61ff483d72f7c16742?rik=F%2fi5jZA4VFSn4Q&riu=http%3a%2f%2fclipart-library.com%2fimg%2f1756540.jpg&ehk=XroqGpw2BdtPIeDvacF0wY1cJFH6RIVJoHvAULsRYy8%3d&risl=&pid=ImgRaw&r="
+    df['img'] = "https://th.bing.com/th/id/R.c8a761297624aa61ff483d72f7c16742?rik=F%2fi5jZA4VFSn4Q&riu=http%3a%2f%2fclipart-library.com%2fimg%2f1756540.jpg&ehk=XroqGpw2BdtPIeDvacF0wY1cJFH6RIVJoHvAULsRYy8%3d&risl=&pid=ImgRaw&r=0"
 
     tab1, tab2= st.tabs(["🔍", "🦸‍♂️"])
 
