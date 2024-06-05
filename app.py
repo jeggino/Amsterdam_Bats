@@ -30,7 +30,7 @@ db = deta.Base("df_amsterdam_bat")
 DOEL = ["groepsvorming en zwermen laatvlieger","kraamperiode (1e avond)","kraamperiode (2e avond)","kraamperiode (1e ochtend)",
        "kraamperiode (2e en 3e ochtend)","kraamperiode (4e ochtend)","eind kraamperiode"]
 
-GEBIED = ['P', 'O']
+GEBIED = ['P', 'O', 'Q']
 
 # --- FUNCTIONS ---
 def load_dataset():
