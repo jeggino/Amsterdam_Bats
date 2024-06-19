@@ -97,7 +97,7 @@ if selected == '📊':
         alt.Y('gebied:N',
               axis=alt.Axis(grid=False,domain=False,ticks=True,),
               sort=alt.EncodingSortField(field="gebied",  order='ascending'),
-              title=None)
+              title="Gebied")
         ,
         stroke=alt.Color('doel'),
         fill=alt.Color('doel').title("Doel").legend(orient="right"),
@@ -119,14 +119,6 @@ if selected == '📊':
     ).configure_view(
     stroke=None
 ).interactive()
-
-    chart.configure_legend(
-        strokeColor='gray',
-        # fillColor='#EEEEEE',
-        padding=10,
-        cornerRadius=10,
-        orient='top-right'
-    )
         
     tab1.altair_chart(chart, theme=None, use_container_width=True)
     
