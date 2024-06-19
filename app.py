@@ -137,7 +137,7 @@ if selected == '📊':
         use_container_width = True
     )
 
-    st.image('images/Screenshot 2024-06-09 150207.png')
+    tab1.image('images/Screenshot 2024-06-09 150207.png')
 
 if selected == '📋':
 
