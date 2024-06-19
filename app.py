@@ -84,7 +84,6 @@ if selected == '📊':
 
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
-    df['img'] = "https://png.pngtree.com/png-clipart/20231021/original/pngtree-bat-face-illustration-png-image_13395424.png"
 
     tab1, tab2= st.tabs(["🔍", "🦸‍♂️"])
 
@@ -97,8 +96,8 @@ if selected == '📊':
         ,
         alt.Y('gebied:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
         ,
-        color="doel",
-        
+        color="doel"
+        ,  
         tooltip=[
             alt.Tooltip("waarnemer:N"),
             alt.Tooltip("datum:T"),
@@ -114,32 +113,7 @@ if selected == '📊':
             anchor='start'
         )
     ).interactive()
-    
-    # Add annotations
-    ANNOTATIONS = [
-        ("April 15, 2024", "Groepsvorming en zwermen laatvlieger"),
-        ("May 15, 2024", "Kraamperiode (1e avond en 1e ochtend)"),
-        ("June 15, 2024", "Kraamperiode (2e avond)"),
-        ("June 1, 2024", "Kraamperiode (2e en 3e ochtend)"),
-        ("July 1, 2024", "Kraamperiode (4e ochtend)"),
-        ("July 15, 2024", "Eind kraamperiode"),
-    ]
-    annotations_df = pd.DataFrame(ANNOTATIONS, columns=["datum", "doel"])
-    annotations_df.datum = pd.to_datetime(annotations_df.datum)
-    
-
-    
-    rule = alt.Chart(annotations_df).mark_rule(color="red").encode(
-        x="datum:T",
-        tooltip=["doel"],
-        color=alt.Color('doel:N').legend(None),
-        size=alt.value(2),
-    ).interactive()
-    
-    
-    
-    chart = chart # + rule
-
+        
     tab1.altair_chart(chart, theme=None, use_container_width=True)
     
     waarnemer = df.waarnemer.to_list()
