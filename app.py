@@ -32,6 +32,8 @@ DOEL = ["groepsvorming en zwermen laatvlieger","kraamperiode (1e avond)","kraamp
 
 GEBIED = ['P', 'O', 'Q', 'B']
 
+WAARNEMERS = ['Luigi', 'Alko', 'Tobias', 'Sanders','Mats']
+
 # --- FUNCTIONS ---
 def load_dataset():
   return db.fetch().items
@@ -66,7 +68,7 @@ if selected == '✍️':
     datum = st.date_input("Datum", datetime.datetime.today())
     gebied = st.selectbox('Gebied',GEBIED,key='area',placeholder="Kies een gebied...",index=None)
     doel = st.selectbox('Doel',DOEL,key='doel',placeholder="Kies een doel...",index=None)
-    waarnemer = st.multiselect('Waarnemer(s)',['Luigi', 'Alko', 'Tobias'],key='waarnemer',placeholder="Kies voor een waarnemer...")
+    waarnemer = st.multiselect('Waarnemer(s)',WAARNEMERS,key='waarnemer',placeholder="Kies voor een waarnemer...")
     
     submitted = st.button("Gegevens invoegen")
     
@@ -99,7 +101,8 @@ if selected == '📊':
         ,
         alt.Y('gebied:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
         ,
-        url="img",
+        color="doel",
+        
         tooltip=[
             alt.Tooltip("waarnemer:N"),
             alt.Tooltip("datum:T"),
@@ -114,7 +117,7 @@ if selected == '📊':
             subtitle="",
             anchor='start'
         )
-    )
+    ).interactive()
     
     # Add annotations
     ANNOTATIONS = [
@@ -139,7 +142,7 @@ if selected == '📊':
     
     
     
-    chart = chart  + rule
+    chart = chart # + rule
 
     tab1.altair_chart(chart, theme=None, use_container_width=True)
     
