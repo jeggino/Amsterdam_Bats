@@ -96,9 +96,9 @@ if selected == '📊':
         ,
         alt.Y('gebied:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
         ,
-        color=alt.Color('doel').title("Doel").legend(orient="right")
-        ,  
-        fill="doel",
+        # color=alt.Color('doel').title("Doel").legend(orient="right")
+        # ,  
+        fill=alt.Color('doel').title("Doel").legend(orient="right"),
         tooltip=[
             alt.Tooltip("waarnemer:N"),
             alt.Tooltip("datum:T"),
