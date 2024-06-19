@@ -88,7 +88,7 @@ if selected == '📊':
     tab1, tab2= st.tabs(["🔍", "🦸‍♂️"])
 
 
-    chart = alt.Chart(df).mark_point(size=60,color="doel"
+    chart = alt.Chart(df).mark_point(size=60,color={"fill":True}
     ).encode(
         alt.X('datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2024','2025']))
