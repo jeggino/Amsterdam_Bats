@@ -29,7 +29,7 @@ db = deta.Base("df_amsterdam_bat")
 
 DOEL = ["groepsvorming en zwermen laatvlieger","kraamperiode (avond)","kraamperiode (ochtend)"]
 
-GEBIED = ['P', 'O', 'Q', 'B']
+GEBIED = ['P', 'O', 'Q', 'B', 'R', 'M', 'N', 'L']
 
 WAARNEMERS = ['Luigi', 'Alko', 'Tobias', 'Sanders','Mats']
 
