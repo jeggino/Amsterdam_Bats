@@ -96,7 +96,7 @@ if selected == '📊':
         ,
         alt.Y('gebied:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
         ,
-        stroke=None,
+        stroke=alt.Color('doel'),
         # color=alt.Color('doel').title("Doel").legend(orient="right")
         # ,  
         fill=alt.Color('doel').title("Doel").legend(orient="right"),
