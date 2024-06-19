@@ -91,7 +91,6 @@ if selected == '📊':
     chart = alt.Chart(df).mark_point(size=60
                                      
     ).encode(
-        fill="doel",
         alt.X('datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2024','2025']))
         ,
@@ -99,6 +98,7 @@ if selected == '📊':
         ,
         color=alt.Color('doel').title("Doel").legend(orient="right")
         ,  
+        fill="doel",
         tooltip=[
             alt.Tooltip("waarnemer:N"),
             alt.Tooltip("datum:T"),
