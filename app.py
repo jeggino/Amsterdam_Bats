@@ -89,7 +89,7 @@ if selected == '📊':
 
 
     chart = alt.Chart(df).mark_point(size=60
-    ).encode(
+    ).encode(fill="doel",
         alt.X('datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2024','2025']))
         ,
