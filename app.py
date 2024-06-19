@@ -99,10 +99,11 @@ if selected == '📊':
         stroke=alt.Color('doel'),
         fill=alt.Color('doel').title("Doel").legend(orient="right"),
         tooltip=[
-            alt.Tooltip("waarnemer:N"),
-            alt.Tooltip("datum:T"),
-            alt.Tooltip("gebied:N"),
-            alt.Tooltip("doel:N"),
+            
+            alt.Tooltip("datum:T",title = "Datum"),
+            alt.Tooltip("gebied:N",title ="Gebied"),
+            alt.Tooltip("doel:N",title ="Doel"),
+            alt.Tooltip("waarnemer:N",title ="Waarnemer(s)"),
         ],
     ).properties(
         width=450,
