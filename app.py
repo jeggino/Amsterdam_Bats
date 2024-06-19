@@ -125,7 +125,7 @@ if selected == '📊':
         # fillColor='#EEEEEE',
         padding=10,
         cornerRadius=10,
-        # orient='top-right'
+        orient='top-right'
     )
         
     tab1.altair_chart(chart, theme=None, use_container_width=True)
