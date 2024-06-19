@@ -96,7 +96,7 @@ if selected == '📊':
         ,
         alt.Y('gebied:N',axis=alt.Axis(grid=False,domain=False,ticks=True,),sort=alt.EncodingSortField(field="gebied",  order='ascending'),title=None)
         ,
-        color="doel"
+        color=alt.Color('doel').title("Doel")
         ,  
         tooltip=[
             alt.Tooltip("waarnemer:N"),
@@ -112,7 +112,9 @@ if selected == '📊':
             subtitle="",
             anchor='start'
         )
-    ).interactive()
+    ).configure_view(
+    stroke=None
+).interactive()
         
     tab1.altair_chart(chart, theme=None, use_container_width=True)
     
