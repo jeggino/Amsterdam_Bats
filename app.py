@@ -185,6 +185,7 @@ if selected == '📋':
         
             insert_input(datum,gebied,doel,waarnemer)
             st.write(f"Done!")
+            st.rerun()
     
     
     if st.button("A"):
