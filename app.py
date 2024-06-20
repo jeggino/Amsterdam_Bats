@@ -140,8 +140,8 @@ if selected == '📊':
         hide_index=False,
         use_container_width = True
     )
-
-    tab1.image('images/Screenshot 2024-06-09 150207.png')
+    with st.expander("Planning")
+        tab1.image('images/Screenshot 2024-06-09 150207.png')
 
 if selected == '📋':
 
