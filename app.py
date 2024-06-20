@@ -115,7 +115,7 @@ if selected == '📊':
 
     with tab1:
         st.altair_chart(chart, theme=None, use_container_width=True)
-        with st.expander("Planning"):
+        with st.expander("Rooster"):
             st.image('images/Screenshot 2024-06-09 150207.png')
     
     waarnemer = df.waarnemer.to_list()
