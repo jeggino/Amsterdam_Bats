@@ -168,4 +168,23 @@ if selected == '📋':
         mime='text/csv',
     )
 
+    @st.experimental_dialog("Cast your vote")
+    def vote():
+        st.write(f"Why is {item} your favorite?")
+        reason = st.text_input("Because...")
+        if st.button("Submit"):
+            peppe = "PEppone"
+            st.rerun()
+    
+    
+    st.write("Vote for your favorite")
+    reason = None
+    if st.button("A"):
+        vote()
+    try:
+        write(reason,peppe)
+    except:
+        st.stop()
+
+
     
