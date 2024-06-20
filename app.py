@@ -149,8 +149,17 @@ if selected == '📋':
     df = pd.DataFrame(db_content)
     df.drop("key",axis=1,inplace=True)
     
+    name = st.multiselect('Waarnemer(s)',WAARNEMERS,key='name',placeholder="Kies voor een waarnemer...")
+    rows=[]
+    for row,col in df.iterrows():
+        if name in col.names:
+            rows.append(row)
+        
+        
+    df_filtered = df.loc[rows]
+    
     st.data_editor(
-        df,
+        df_filtered,
         hide_index=True,
         use_container_width = True
     )
@@ -158,7 +167,7 @@ if selected == '📋':
 
     st.download_button(
         label="Download data as CSV",
-        data=df.to_csv(),
+        data=df_filtered.to_csv(),
         file_name='df.csv',
         mime='text/csv',
     )
