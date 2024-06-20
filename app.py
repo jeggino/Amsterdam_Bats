@@ -102,12 +102,10 @@ if selected == '📊':
         stroke=alt.Color('doel'),
         fill=alt.Color('doel').title("Doel"),
         legend=alt.Legend(orient='none',legendX=130, legendY=-40,direction='horizontal',titleAnchor='middle')),
-        tooltip=[
-            alt.Tooltip("datum:T",title = "Datum"),
-            alt.Tooltip("gebied:N",title ="Gebied"),
-            alt.Tooltip("doel:N",title ="Doel"),
-            alt.Tooltip("waarnemer:N",title ="Waarnemer(s)"),
-        ],
+        tooltip=[alt.Tooltip("datum:T",title = "Datum"),
+                 alt.Tooltip("gebied:N",title ="Gebied"),
+                 alt.Tooltip("doel:N",title ="Doel"),
+                 alt.Tooltip("waarnemer:N",title ="Waarnemer(s)")],
     ).properties(
         width=450,
         height=300,
