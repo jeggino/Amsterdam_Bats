@@ -96,7 +96,7 @@ if selected == '📊':
               sort=alt.EncodingSortField(field="gebied",  order='ascending'),
               title="Gebied"),
         stroke=alt.Color('doel'),
-        fill=alt.Color('doel',legend=alt.Legend(orient='none',legendX=130, legendY=-40,direction='horizontal',titleAnchor='middle')).title("Doel"),
+        fill=alt.Color('doel',legend=alt.Legend(orient='none',direction='horizontal',titleAnchor='middle')).title("Doel"),
         tooltip=[alt.Tooltip("datum:T",title = "Datum"),
                  alt.Tooltip("gebied:N",title ="Gebied"),
                  alt.Tooltip("doel:N",title ="Doel"),
