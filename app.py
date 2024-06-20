@@ -119,8 +119,11 @@ if selected == '📊':
     ).configure_view(
     stroke=None
 ).interactive()
-        
-    tab1.altair_chart(chart, theme=None, use_container_width=True)
+
+    with tab1:
+        st.altair_chart(chart, theme=None, use_container_width=True)
+        with st.expander("Planning"):
+            st.image('images/Screenshot 2024-06-09 150207.png')
     
     waarnemer = df.waarnemer.to_list()
     data = Counter(get_elements(waarnemer))
@@ -140,8 +143,7 @@ if selected == '📊':
         hide_index=False,
         use_container_width = True
     )
-    with st.expander("Planning"):
-        tab1.image('images/Screenshot 2024-06-09 150207.png')
+    
 
 if selected == '📋':
 
