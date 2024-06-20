@@ -114,7 +114,8 @@ if selected == '📊':
 ).interactive()
 
     with tab1:
-        st.altair_chart(chart, theme=None, use_container_width=True)
+        a = st.altair_chart(chart, theme=None, use_container_width=True,on_select="rerun")
+        a
         with st.expander("Rooster"):
             st.image('images/Screenshot 2024-06-09 150207.png')
     
