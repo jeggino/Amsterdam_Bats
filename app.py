@@ -149,7 +149,7 @@ if selected == '📋':
     df = pd.DataFrame(db_content)
     df.drop("key",axis=1,inplace=True)
     
-    name = st.multiselect('Waarnemer(s)',WAARNEMERS,key='name',placeholder="Kies voor een waarnemer...")
+    name = st.selectbox('Waarnemer(s)',WAARNEMERS,key='name',placeholder="Kies voor een waarnemer...")
     rows=[]
     for row,col in df.iterrows():
         if name in col.waarnemer:
