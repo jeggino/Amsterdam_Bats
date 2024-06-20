@@ -109,7 +109,7 @@ if selected == '📊':
             subtitle="",
             anchor='start'
         )
-    ).configure_view(stroke=None)).interactive()
+    )).configure_view(stroke=None).interactive()
 
     with tab1:
         
