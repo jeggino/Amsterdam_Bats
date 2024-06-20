@@ -109,9 +109,7 @@ if selected == '📊':
             subtitle="",
             anchor='start'
         )
-    ).configure_view(
-    stroke=None
-).interactive()
+    ).configure_view(stroke=None).interactive()
 
     with tab1:
         st.altair_chart(chart, theme=None, use_container_width=True,on_select="rerun")
