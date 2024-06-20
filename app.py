@@ -88,20 +88,16 @@ if selected == '📊':
     tab1, tab2= st.tabs(["🔍", "🦸‍♂️"])
 
 
-    chart = alt.Chart(df).mark_point(size=60
-                                     
-    ).encode(
+    chart = alt.Chart(df).mark_point(size=60).encode(
         alt.X('datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
-              scale=alt.Scale(domain=['2024','2025']))
-        ,
+              scale=alt.Scale(domain=['2024','2025'])),
         alt.Y('gebied:N',
               axis=alt.Axis(grid=False,domain=False,ticks=True,),
               sort=alt.EncodingSortField(field="gebied",  order='ascending'),
-              title="Gebied")
-        ,
+              title="Gebied"),
         stroke=alt.Color('doel'),
         fill=alt.Color('doel').title("Doel"),
-        legend=alt.Legend(orient='none',legendX=130, legendY=-40,direction='horizontal',titleAnchor='middle')),
+        legend=alt.Legend(orient='none',legendX=130, legendY=-40,direction='horizontal',titleAnchor='middle'),
         tooltip=[alt.Tooltip("datum:T",title = "Datum"),
                  alt.Tooltip("gebied:N",title ="Gebied"),
                  alt.Tooltip("doel:N",title ="Doel"),
