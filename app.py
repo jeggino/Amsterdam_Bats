@@ -104,18 +104,18 @@ if selected == '📊':
     ).properties(
         width=450,
         height=300,
-        # title=alt.Title(
-        #     text="",
-        #     subtitle="",
-        #     anchor='start'
-        # )
+        title=alt.Title(
+            text="",
+            subtitle="",
+            anchor='start'
+        )
     ).configure_view(
     stroke=None
 ).interactive()
 
     with tab1:
-        a = st.altair_chart(chart, theme=None, use_container_width=True,on_select="rerun")
-        a
+        st.altair_chart(chart, theme=None, use_container_width=True,on_select="rerun")
+    
         with st.expander("Rooster"):
             st.image('images/Screenshot 2024-06-09 150207.png')
     
