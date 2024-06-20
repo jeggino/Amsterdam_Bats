@@ -14,7 +14,7 @@ from collections import Counter
 st.set_page_config(
     page_title="❌❌❌",
     page_icon="🦇",
-    layout="wide",
+    layout="centered",
     menu_items={
         'About': "https://www.ecoloogamsterdam.nl/"
     }
