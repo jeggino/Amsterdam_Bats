@@ -152,7 +152,7 @@ if selected == '📋':
     name = st.multiselect('Waarnemer(s)',WAARNEMERS,key='name',placeholder="Kies voor een waarnemer...")
     rows=[]
     for row,col in df.iterrows():
-        if name in col.names:
+        if name in col.waarnemer:
             rows.append(row)
         
         
