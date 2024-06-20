@@ -100,7 +100,12 @@ if selected == '📊':
               title="Gebied")
         ,
         stroke=alt.Color('doel'),
-        fill=alt.Color('doel').title("Doel").legend(orient="right"),
+        fill=alt.Color('doel').title("Doel"),
+        legend=alt.Legend(
+            orient='none',
+            legendX=130, legendY=-40,
+            direction='horizontal',
+            titleAnchor='middle')),
         tooltip=[
             
             alt.Tooltip("datum:T",title = "Datum"),
