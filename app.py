@@ -88,7 +88,7 @@ if selected == '📊':
     tab1, tab2= st.tabs(["🔍", "🦸‍♂️"])
 
 
-    chart = alt.Chart(df).mark_point(size=60).encode(
+    chart = alt.layer(alt.Chart(df).mark_point(size=60).encode(
         alt.X('datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2024','2025'])),
         alt.Y('gebied:N',
@@ -109,9 +109,10 @@ if selected == '📊':
             subtitle="",
             anchor='start'
         )
-    ).configure_view(stroke=None).interactive()
+    ).configure_view(stroke=None)).interactive()
 
     with tab1:
+        
         st.altair_chart(chart, theme=None, use_container_width=True,on_select="rerun")
     
         with st.expander("Rooster"):
@@ -166,28 +167,6 @@ if selected == '📋':
         mime='text/csv',
     )
 
-    @st.experimental_dialog("Cast your vote")
-    def vote():
-        datum = st.date_input("Datum", datetime.datetime.today())
-        gebied = st.selectbox('Gebied',GEBIED,key='area',placeholder="Kies een gebied...",index=None)
-        doel = st.selectbox('Doel',DOEL,key='doel',placeholder="Kies een doel...",index=None)
-        waarnemer = st.multiselect('Waarnemer(s)',WAARNEMERS,key='waarnemer',placeholder="Kies voor een waarnemer...")
-        
-        submitted = st.button("Gegevens invoegen")
-        
-        if submitted:
-    
-            if len(waarnemer) == 0 or gebied==None or doel==None:
-                st.warning("Vul het formulier in, alstublieft")
-                st.stop()
-        
-            insert_input(datum,gebied,doel,waarnemer)
-            st.write(f"Done!")
-            st.rerun()
-    
-    
-    if st.button("A"):
-        vote()
 
 
     
