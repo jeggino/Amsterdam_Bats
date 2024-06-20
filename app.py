@@ -170,20 +170,25 @@ if selected == '📋':
 
     @st.experimental_dialog("Cast your vote")
     def vote():
-        reason = st.text_input("Because...")
-        if st.button("Submit"):
-            peppe = "PEppone"
-            st.rerun()
+        datum = st.date_input("Datum", datetime.datetime.today())
+        gebied = st.selectbox('Gebied',GEBIED,key='area',placeholder="Kies een gebied...",index=None)
+        doel = st.selectbox('Doel',DOEL,key='doel',placeholder="Kies een doel...",index=None)
+        waarnemer = st.multiselect('Waarnemer(s)',WAARNEMERS,key='waarnemer',placeholder="Kies voor een waarnemer...")
+        
+        submitted = st.button("Gegevens invoegen")
+        
+        if submitted:
+    
+            if len(waarnemer) == 0 or gebied==None or doel==None:
+                st.warning("Vul het formulier in, alstublieft")
+                st.stop()
+        
+            insert_input(datum,gebied,doel,waarnemer)
+            st.write(f"Done!")
     
     
-    st.write("Vote for your favorite")
-    reason = None
     if st.button("A"):
         vote()
-    try:
-        write(reason,peppe)
-    except:
-        st.stop()
 
 
     
