@@ -88,7 +88,7 @@ if selected == '📊':
     tab1, tab2= st.tabs(["🔍", "🦸‍♂️"])
 
 
-    chart = alt.layer(alt.Chart(df).mark_point(size=60).encode(
+    chart = alt.Chart(df).mark_point(size=60).encode(
         alt.X('datum:T',axis=alt.Axis(grid=False,domain=True,ticks=False,),title=None, 
               scale=alt.Scale(domain=['2024','2025'])),
         alt.Y('gebied:N',
@@ -109,11 +109,11 @@ if selected == '📊':
             subtitle="",
             anchor='start'
         )
-    )).configure_view(stroke=None).interactive()
+    ).configure_view(stroke=None)
 
     with tab1:
         
-        st.altair_chart(chart, theme=None, use_container_width=True,on_select="rerun")
+        st.altair_chart(chart.interactive(), theme=None, use_container_width=True)
     
         with st.expander("Rooster"):
             st.image('images/Screenshot 2024-06-09 150207.png')
