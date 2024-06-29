@@ -21,7 +21,6 @@ st.set_page_config(
     
 )
 
-st.logo("https://i.pinimg.com/originals/01/ca/da/01cada77a0a7d326d85b7969fe26a728.jpg", link="https://streamlit.io/gallery", icon_image="https://cdn3.iconfinder.com/data/icons/nature-animals/512/Bird-1024.png")
 
 # --- CONNECT TO DETA ---
 deta = Deta(st.secrets["deta_key"])
