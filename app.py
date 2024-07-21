@@ -28,7 +28,7 @@ db = deta.Base("df_amsterdam_bat")
 
 # --- COSTANTS ---
 
-DOEL = ["Groepsvorming laatvlieger","Kraamperiode (avond)","Kraamperiode (ochtend)","Winterverblijfplaatsen","Paarverblijfplaatsen", "Kolonie tellen"]
+DOEL = ["Groepsvorming laatvlieger","Kraamperiode (avond)","Kraamperiode (ochtend)","Winterverblijfplaatsen","Paarverblijfplaatsen (Gewonedwerge vleermuis)","Paarverblijfplaatsen (Meervleermuis)", "Kolonie tellen"]
 
 GEBIED = ['P', 'O', 'Q', 'B', 'R', 'M', 'N', 'L']
 
